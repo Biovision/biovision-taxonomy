@@ -1,0 +1,38 @@
+ru:
+  activerecord:
+    models:
+      taxon: "Таксон"
+      taxon_component: "Таксон в компоненте"
+      taxon_user: "Таксон для пользователя"
+  attributes:
+    taxon: "Таксон"
+    taxon_id: "Таксон"
+  admin:
+    taxa:
+      destroy:
+        success: "Таксон удалён"
+      edit:
+        title: "Редактирование таксона"
+        nav_text: "Редактировать"
+        heading: "Редактирование таксона"
+      index:
+        title: "Таксоны"
+        heading: "Таксоны"
+      nav_item:
+        text: "Все таксоны"
+        description: "Управление таксонами"
+      new:
+        title: "Добавление таксона"
+        nav_text: "Создать"
+        heading: "Новый таксон"
+      show:
+        title: "Таксон «%{name}»"
+      entity:
+        add_child:
+          heading: "Добавить дочерний таксон"
+        children:
+          heading: "Дочерние таксоны"
+  biovision:
+    components:
+      taxonomy:
+        name: "Таксономия"
