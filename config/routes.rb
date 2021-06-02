@@ -19,6 +19,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     # Taxonomy
-    resources :taxa, concerns: %i[check priority search toggle]
+    resources :taxa, concerns: %i[check priority search toggle] do
+      member do
+        put 'components/:component_id' => :add_component, as: :component
+        delete 'components/:component_id' => :remove_component
+        put 'users/:user_id' => :add_user, as: :user
+        delete 'users/:user_id' => :remove_user
+      end
+    end
   end
 end

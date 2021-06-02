@@ -1,13 +1,18 @@
 <figure class="image"><%= simple_image_preview(entity) %></figure>
 <div class="data">
   <div><%= admin_entity_link(entity) %></div>
-  <div class="info"><%= entity.name %></div>
-  <div class="secondary info"><%= t(:object_count, count: entity.object_count) %></div>
-  <div class="secondary info"><%= entity.uuid %></div>
+  <div class="info"><%= entity.slug %></div>
+  <% if entity.parent_id.nil? %>
+    <div class="secondary info">
+      <%= t('.components') %>:
+      <%= entity.biovision_components.map { |c| component_name(c) }.join(', ') %>
+    </div>
+  <% end %>
+  <div class="secondary info"><%= t(:object_count, count: entity.object_count!) %></div>
 
   <%= render(partial: 'shared/admin/toggle', locals: { entity: entity }) %>
 
-  <% if local_assigns[:handler] && handler.permit?('edit', entity) %>
+  <% if local_assigns[:handler]&.permit?('edit', entity) %>
     <div class="entity-actions">
       <%= edit_icon(entity) %>
       <%= render(partial: 'shared/admin/priority', locals: { entity: entity }) %>

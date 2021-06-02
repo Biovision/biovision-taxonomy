@@ -1,0 +1,23 @@
+<section>
+  <h2><%= t('.heading') %></h2>
+
+  <ul class="entity-links">
+    <% BiovisionComponent.list_for_administration.each do |component| %>
+      <li>
+        <label class="flag-label">
+          <%=
+            check_box_tag(
+              'component_id',
+              component.id,
+              entity.component?(component),
+              data: {
+                url: component_admin_taxon_path(id: entity.id, component_id: component.slug)
+              }
+            )
+          %>
+          <span><%= component_name(component) %></span>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+</section>

@@ -32,6 +32,10 @@ ru:
           heading: "Добавить дочерний таксон"
         children:
           heading: "Дочерние таксоны"
+        components:
+          heading: "Использование в компонентах"
+        in_list:
+          components: "Компоненты"
   biovision:
     components:
       taxonomy:

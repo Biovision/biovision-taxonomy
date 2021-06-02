@@ -5,7 +5,6 @@
     <%= render partial: 'shared/entity/parent', locals: { entity: entity } %>
     <%= render partial: 'shared/forms/priority', locals: { f: f } %>
     <%= render partial: 'shared/forms/fields', locals: { f: f, fields: %w[slug name nav_text] } %>
-    <%= render partial: 'shared/forms/text_field', locals: { f: f, field: :token } unless entity.id.nil? %>
     <%= render partial: 'shared/forms/simple_image', locals: { f: f } %>
   </dl>
 
