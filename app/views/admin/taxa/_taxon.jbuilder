@@ -1,7 +1,7 @@
 json.id taxon.id
 json.type taxon.class.table_name
 json.attributes do
-  json.call(taxon, :name, :slug, :nav_text, :parent_id, :parents_cache, :children_cache)
+  json.call(*[taxon, taxon.json_attributes].flatten)
 end
 json.meta do
   json.text_for_link taxon.text_for_link

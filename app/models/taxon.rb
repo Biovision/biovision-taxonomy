@@ -41,10 +41,15 @@ class Taxon < ApplicationRecord
   scope :ordered_by_name, -> { order('name asc') }
   scope :visible, -> { where(visible: true) }
   scope :list_for_administration, -> { included_image.ordered_by_priority }
-  scope :seacrh, ->(q) { where('name ilike ?', "#{q}%") unless q.blank? }
+  scope :search, ->(q) { where('name ilike ?', "#{q}%") unless q.blank? }
 
   def self.page_for_administration(*)
     where(parent: nil).list_for_administration
+  end
+
+  # @param [String] slug
+  def self.[](slug)
+    find_by(parent: nil, slug: slug)
   end
 
   # @param [Taxon] entity
@@ -58,6 +63,10 @@ class Taxon < ApplicationRecord
 
   def self.creation_parameters
     entity_parameters + %i[parent_id]
+  end
+
+  def self.json_attributes
+    %i[name slug nav_text parent_id parents_cache children_cache]
   end
 
   def text_for_link

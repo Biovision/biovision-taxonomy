@@ -3,9 +3,9 @@
 
   <dl class="fields">
     <%= render partial: 'shared/entity/parent', locals: { entity: entity } %>
-    <%= render partial: 'shared/forms/priority', locals: { f: f } %>
+    <%= entity_form_block(f, :priority) %>
     <%= render partial: 'shared/forms/fields', locals: { f: f, fields: %w[slug name nav_text] } %>
-    <%= render partial: 'shared/forms/simple_image', locals: { f: f } %>
+    <%= entity_form_block(f, :simple_image) %>
   </dl>
 
   <%= render 'shared/forms/state_container' %>

@@ -2,6 +2,6 @@
 
 module Biovision
   module Taxonomy
-    VERSION = '0.1.210602.0'
+    VERSION = '0.1.220208.0'
   end
 end

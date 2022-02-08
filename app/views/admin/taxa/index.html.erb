@@ -7,7 +7,7 @@
 <article>
   <h1><%= t('.heading') %></h1>
 
-  <% if component_handler.permit?('taxa.edit') %>
+  <% if component_handler.permit?("#{controller_name}.edit") %>
     <nav class="entity-actions">
       <%= create_icon(new_admin_taxon_path) %>
     </nav>
@@ -20,10 +20,5 @@
     )
   %>
 
-  <%=
-    render(
-      partial: 'shared/admin/list_with_priority',
-      locals: { collection: @collection, handler: component_handler }
-    )
-  %>
+  <%= entity_list(@collection, with_priority: true) %>
 </article>
